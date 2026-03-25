@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+}
+
+/* 微信界面容器 */
+.wechat-container {
+    width: 100vw;
+    height: 100vh;
+    background: #ededed;
+    position: relative;
+}
+
+/* 状态栏 */
+.status-bar {
+    width: 100%;
+    height: 44px;
+    background: #f7f7f7;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 8px 18px 5px;
+}
+
+.status-time {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+}
+
+.status-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.hd, .network {
+    font-size: 10px;
+    font-weight: 500;
+    color: #000;
+}
+
+/* 信号格 */
+.signal {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.signal .bar {
+    width: 2.5px;
+    background: #000;
+    border-radius: 1px;
+}
+
+.signal .bar:nth-child(1) { height: 4px; }
+.signal .bar:nth-child(2) { height: 6px; }
+.signal .bar:nth-child(3) { height: 8px; }
+.signal .bar:nth-child(4) { height: 10px; }
+.signal .bar:nth-child(5) { height: 12px; }
+
+/* WiFi图标 */
+.wifi {
+    position: relative;
+    width: 14px;
+    height: 12px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.wifi .wave {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1.5px solid transparent;
+    border-top-color: #000;
+    border-radius: 50%;
+}
+
+.wifi .wave1 { width: 14px; height: 14px; }
+.wifi .wave2 { width: 10px; height: 10px; }
+.wifi .wave3 { width: 6px; height: 6px; }
+.wifi .dot { width: 2px; height: 2px; background: #000; border-radius: 50%; margin-bottom: 1px; }
+
+/* 电量 */
+.battery-text {
+    font-size: 11px;
+    font-weight: 500;
+    color: #000;
+}
+
+.battery {
+    width: 24px;
+    height: 12px;
+    border: 1.5px solid #000;
+    border-radius: 2.5px;
+    display: flex;
+    align-items: center;
+    padding: 1px;
+}
+
+.battery-fill {
+    height: 100%;
+    background: #000;
+    border-radius: 1px;
+    flex: 1;
+}
+
+.battery-cap {
+    width: 1.5px;
+    height: 6px;
+    background: #000;
+    border-radius: 0 1px 1px 0;
+    margin-left: 1px;
+}
+
+/* 聊天头部 */
+.chat-header {
+    width: 100%;
+    height: 48px;
+    background: #f7f7f7;
+    border-bottom: 0.5px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 8px;
+}
+
+.back-btn {
+    width: 12px;
+    height: 20px;
+    position: relative;
+}
+
+.back-btn::before, .back-btn::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 12px;
+    height: 2px;
+    background: #000;
+    border-radius: 1px;
+    transform-origin: left center;
+}
+
+.back-btn::before { transform: translateY(-50%) rotate(-45deg); }
+.back-btn::after { transform: translateY(-50%) rotate(45deg); }
+
+.unread {
+    min-width: 24px;
+    height: 20px;
+    background: #d8d8d8;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #000;
+    text-align: center;
+    line-height: 20px;
+    padding: 0 6px;
+}
+
+.nickname {
+    flex: 1;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 500;
+    color: #000;
+}
+
+.more-btn {
+    display: flex;
+    gap: 3.5px;
+}
+
+.more-btn .dot {
+    width: 4px;
+    height: 4px;
+    background: #000;
+    border-radius: 50%;
+}
+
+/* 聊天内容区 */
+.chat-content {
+    width: 100%;
+    height: calc(100% - 44px - 48px - 54px);
+    padding: 16px 12px 0;
+    overflow-y: auto;
+}
+
+.msg-time {
+    text-align: center;
+    font-size: 11px;
+    color: #999;
+    margin-bottom: 16px;
+}
+
+.message {
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.outgoing {
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    background-size: cover;
+    background-position: center;
+    margin-left: 8px;
+}
+
+.bubble {
+    max-width: 260px;
+    padding: 10px 12px;
+    background: #94ec68;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 1.55;
+    color: #000;
+    position: relative;
+}
+
+.outgoing .bubble::after {
+    content: '';
+    position: absolute;
+    right: -7px;
+    top: 12px;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 7px solid #94ec68;
+}
+
+/* 底部输入栏 */
+.input-bar {
+    width: 100%;
+    height: 54px;
+    background: #f7f7f7;
+    border-top: 0.5px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    gap: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.voice-icon, .mic-icon, .emoji-icon, .plus-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+}
+
+.input-placeholder {
+    flex: 1;
+    height: 36px;
+    background: #fff;
+    border: 0.5px solid #e0e0e0;
+    border-radius: 18px;
+}
